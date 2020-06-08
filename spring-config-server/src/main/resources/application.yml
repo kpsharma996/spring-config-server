@@ -1,0 +1,26 @@
+spring:
+  application:
+    # name of the application
+    name: spring-config-server
+    # available profiles of the application
+  profiles:
+    active: local,development,production
+  cloud:
+    config:
+      override-system-properties: false
+      server:
+        git:
+          # git url where the configurations are stored
+          uri: https://github.com/kpsharma996/spring-config-server
+          clone-on-start: true
+#          username: <your git username>
+#          password: <your git pwd>
+          # if configurations are in sub folders search the subfolder by below name
+          search-paths: server-config/client-one, server-config/client-two
+server:
+  # config server port
+  port: 8888
+management:
+  security:
+    # disable security of the config server
+    enabled: false

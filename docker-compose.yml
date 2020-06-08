@@ -1,0 +1,35 @@
+version: '3'
+services:
+  client-one:
+    container_name: client-one
+    image: client-one
+    ports:
+      - 8080:8080
+    networks:
+      - spring-cloud-private-network
+    # depends_on: 
+    #     - config-server 
+
+  
+  
+#   config-server:
+#     container_name: config-server
+#     image: config-server
+#     ports:
+#       - 8888:8888
+#     networks:
+#       - spring-cloud-private-network
+
+  client-two:
+    container_name: client-two
+    image: client-two
+    ports:
+      - 8081:8081
+    networks:
+      - spring-cloud-private-network
+    # depends_on: 
+    #     - config-server
+
+networks:
+    spring-cloud-private-network:
+        driver: bridge
