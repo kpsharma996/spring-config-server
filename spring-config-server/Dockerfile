@@ -8,4 +8,4 @@ WORKDIR /usr/local/bin
 
 COPY ./target/spring-config-server-0.0.1-SNAPSHOT.jar config-server.jar
 
-CMD ["java", "-jar", "config-server.jar"]
+CMD ["java", "-jar", "config-server.jar", "--spring.cloud.config.server.git.username=kpsharma996", "spring.cloud.config.server.git.password=<pwd>"]
